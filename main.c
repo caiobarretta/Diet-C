@@ -31,7 +31,7 @@ int main(){
 				break;
 			default:
 				system("cls");
-				printf("Perfil Inválido!");
+				printf("Perfil Inválido!\n");
 		}
 	}while(opcao != 0);
 	system("pause");
