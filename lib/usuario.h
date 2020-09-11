@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <conio.h>
 #include "strutil.h"
+#include <stdlib.h>
 
 struct Login{
 	int codigo_usuario;
@@ -18,6 +19,7 @@ int autenticacao_usuario(char* codigo_perfil);
 #define CARACTER_MASCARA_SENHA '*'
 #define TAMANHO_MAXIMO_CARACTERES_LINHA 100
 #define TAMANHO_MAXIMO_CARACTERES_USUARIO 100
+#define CAMIMNHO_ARQUIVO_USUARIO "db\\Usuarios.txt"
 
 int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
@@ -39,8 +41,9 @@ int autenticacao_usuario(char* codigo_perfil){
 		login.usuario = usuario_normalizado;
 		login.senha = senha_copia;
 		usuario_senha_valida = valida_login(login);
+		login.codigo_usuario = usuario_senha_valida;
 		
-		if(usuario_senha_valida == 1)
+		if(usuario_senha_valida > 0)
 			printf("\nUsuário autenticado com sucesso!\n");
 		else
 			printf("\nSenha ou Usuário inválidos!\n");
@@ -48,7 +51,7 @@ int autenticacao_usuario(char* codigo_perfil){
 		system("cls");
 		tentativas++;
 		
-	}while(usuario_senha_valida != 1 && tentativas <3);
+	}while(usuario_senha_valida <= 0 && tentativas <3);
 	return usuario_senha_valida;
 }
 
@@ -58,7 +61,8 @@ int valida_login(struct Login login){
 	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
 	
 	// Abre um arquivo TEXTO para LEITURA
-	arq = fopen("db\\Usuarios.txt", "rt");
+	//arq = fopen("db\\Usuarios.txt", "rt");
+	arq = fopen(CAMIMNHO_ARQUIVO_USUARIO, "rt");
 	if (arq == NULL){  // Se houve erro na abertura
 	 printf("Problemas na abertura do arquivo de usuário e senha.\n");
 	 return 0;
@@ -69,10 +73,11 @@ int valida_login(struct Login login){
 	  if (result){  // Se foi possível ler
 	  
 	  	char **col= split_char(row,',');
-	  	char* codigo_perfil_normalizado = str_normalize_escape_char(col[2]);
-		if (strcmp(col[0], login.usuario) == 0 && strcmp(col[1], login.senha) == 0 && 
+	  	
+	  	char* codigo_perfil_normalizado = str_normalize_escape_char(col[3]);
+		if (strcmp(col[1], login.usuario) == 0 && strcmp(col[2], login.senha) == 0 && 
 		  	strcmp(codigo_perfil_normalizado, login.codigo_perfil) == 0){
-	  		return 1;
+		  	return atoi(col[0]);
 	  	}
 	  }
 	}

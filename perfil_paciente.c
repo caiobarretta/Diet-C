@@ -17,7 +17,7 @@ void main_perfil_paciente(){
 		do{
 			printf("Entre com 1 para opção Cadastro Porção de alimento.\n");
 			printf("Entre com 2 para opção Cadastro Dieta (Com base na porção de alimento).\n");
-			printf("Ou entre com 0 para sair: ");
+			printf("Ou entre com 0 para voltar: ");
 			scanf("%d", &opcao);
 			system("cls");
 			switch(opcao){

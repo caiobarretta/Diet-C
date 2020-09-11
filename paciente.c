@@ -3,16 +3,16 @@
 #include <conio.h>
 #include <string.h>
 
-void imprime_bem_vindo_cadastro_dieta();
+void imprime_bem_vindo_cadastro_paciente();
 
-void main_cadastro_dieta(char* codigo_perfil){
+void main_cadastro_paciente(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
-	imprime_bem_vindo_cadastro_dieta();
+	imprime_bem_vindo_cadastro_paciente();
 	int opcao = -1;
 	do{
-		printf("Entre com 1 para opção Cadastrar Nova Dieta.\n");
-		printf("Entre com 2 para opção Visualizar as Dietas cadastradas.\n");
-		printf("Entre com 3 para opção Pesquisar Dietas.\n");
+		printf("Entre com 1 para opção Cadastrar Novo Paciente.\n");
+		printf("Entre com 2 para opção Visualizar os Pacientes cadastrados.\n");
+		printf("Entre com 3 para opção Pesquisar Pacientes.\n");
 		printf("Ou entre com 0 para voltar: ");
 		scanf("%d", &opcao);
 		system("cls");
@@ -34,7 +34,7 @@ void main_cadastro_dieta(char* codigo_perfil){
 	system("cls");
 }
 
-void imprime_bem_vindo_cadastro_dieta(){
+void imprime_bem_vindo_cadastro_paciente(){
 	printf("===============================================================\n");
 	printf("==================== BEM-VINDO AO CADASTRO  ===================\n");
 	printf("===================== DE DIETAS DO DIET-C =====================\n");
