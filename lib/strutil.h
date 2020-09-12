@@ -3,52 +3,40 @@
 #include <string.h>
 #include <ctype.h>
 #include <conio.h>
+#include "definicoes.h"
 
-char **split_char(const char* frase, const char separador);
+#ifndef _STRUTIL_H
+#define _STRUTIL_H
+
+char* split_char_position(const char* frase, const char separador, const int position);
 void replace_char(char* text_dest, const char* text_source, const char old_char, const char new_char);
 void remove_char(char* text_dest, const char* text_source, const char old_char);
 char* str_normalize_escape_char(const char* text_source);
 char* convert_int_to_string(int value, char* str);
 
-
-char **split_char(const char* frase, const char separador){
-    int i, j, k, contsep = 0;
-
-     for(i=0,contsep=0;i<strlen(frase);i++)
-       if(frase[i] == separador)
-          contsep++;
-
-    char  aux[contsep][20];
-    char **result = (char**)malloc(contsep*sizeof(char));
-    
-    if(contsep)
-    {
-        for(i=0; i<=contsep; i++ )
-          *(result + i) = (char*)malloc(40*sizeof(char));
-        
-        for(i=0,k=0,j=0; i < strlen(frase); i++)
-           if(frase[i] != separador)
-           {
-              aux[k][j] = frase[i];
-              j++;
-           }
-           else
-           {
-              aux[k][j] = 0;
-              k++;
-              j=0;
-           }
-        aux[k][j] = 0;
-        
-        for(i=0;i<=contsep;i++)
-          *(result+i) = strcpy(*(result+i), aux[i]);
-        
-        return result;
-    }
-    else{
-    	printf("Nenhum Separador Encontrado");
-    	free(result);
+char* split_char_position(const char* frase, const char separador, const int posicao){
+	int i = 0, qtd_separador = 0, contador_trecho_frase = 0, index_inicio = 0, index_fim = 0;
+	char* trecho_frase;
+	for(i=0; i<strlen(frase); i++){
+		char caracter = frase[i];
+		if(separador == caracter)
+			qtd_separador++;
+		if(qtd_separador == posicao && frase[i] != separador){
+			if(index_inicio == 0) 
+				index_inicio = i;
+			index_fim = i;
+			contador_trecho_frase++;
+		}
 	}
+	trecho_frase = (char*)malloc(sizeof(char)*contador_trecho_frase);
+	memset(trecho_frase, 0, sizeof(char)*contador_trecho_frase);
+	
+	contador_trecho_frase = 0;
+	for(i=index_inicio; i<=index_fim; i++){
+		trecho_frase[contador_trecho_frase] = frase[i];
+		contador_trecho_frase++;
+	}
+	return trecho_frase;
 }
 
 void replace_char(char* text_dest, const char* text_source, const char old_char, const char new_char){
@@ -99,3 +87,5 @@ char* convert_int_to_string(int value, char* str){
    }
     return str;
 }
+
+#endif /* _STRUTIL_H */

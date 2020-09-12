@@ -1,2 +1,4 @@
-1000,Teste Descricao
-1000,Teste Descricao,@R1|1R2|2R3|3R4|4R5|5R6|656|656|
+1,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+2,sa,23,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+3,teste,teste,dom|seg|ter|qua|qui|sex|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+4,teste,teste,dom|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|

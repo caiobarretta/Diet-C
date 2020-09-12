@@ -24,7 +24,7 @@ void main_perfil_paciente(){
 				case 0:
 					break;
 				case 1:
-					main_cadastro_porcao_alimento(CODIGO_PERFIL_PACIENTE);
+					//main_cadastro_porcao_alimento(CODIGO_PERFIL_PACIENTE);
 					break;
 				case 2:
 					main_cadastro_dieta(CODIGO_PERFIL_PACIENTE);

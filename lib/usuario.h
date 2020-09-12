@@ -2,24 +2,17 @@
 #include <string.h>
 #include <ctype.h>
 #include <conio.h>
-#include "strutil.h"
 #include <stdlib.h>
+#include "strutil.h"
+#include "structutil.h"
+#include "definicoes.h"
 
-struct Login{
-	int codigo_usuario;
-	char* usuario;
-	char* senha;
-	char* codigo_perfil;
-};
+#ifndef _USUARIO_H
+#define _USUARIO_H
 
 int valida_login(struct Login login);
 char* get_password(char *display_message);
 int autenticacao_usuario(char* codigo_perfil);
-
-#define CARACTER_MASCARA_SENHA '*'
-#define TAMANHO_MAXIMO_CARACTERES_LINHA 100
-#define TAMANHO_MAXIMO_CARACTERES_USUARIO 100
-#define CAMIMNHO_ARQUIVO_USUARIO "db\\Usuarios.txt"
 
 int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
@@ -55,13 +48,11 @@ int autenticacao_usuario(char* codigo_perfil){
 	return usuario_senha_valida;
 }
 
-
 int valida_login(struct Login login){
 	FILE *arq = NULL;
 	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
 	
 	// Abre um arquivo TEXTO para LEITURA
-	//arq = fopen("db\\Usuarios.txt", "rt");
 	arq = fopen(CAMIMNHO_ARQUIVO_USUARIO, "rt");
 	if (arq == NULL){  // Se houve erro na abertura
 	 printf("Problemas na abertura do arquivo de usuário e senha.\n");
@@ -72,12 +63,15 @@ int valida_login(struct Login login){
 	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
 	  if (result){  // Se foi possível ler
 	  
-	  	char **col= split_char(row,',');
+	  	char* codigo_usuario = split_char_position(row, CARACTER_SEPARACAO, 0);
+	  	char* codigo_perfil = split_char_position(row, CARACTER_SEPARACAO, 3);
+	  	char* usuario = split_char_position(row, CARACTER_SEPARACAO, 1);
+	  	char* senha = split_char_position(row, CARACTER_SEPARACAO, 2);
 	  	
-	  	char* codigo_perfil_normalizado = str_normalize_escape_char(col[3]);
-		if (strcmp(col[1], login.usuario) == 0 && strcmp(col[2], login.senha) == 0 && 
+	  	char* codigo_perfil_normalizado = str_normalize_escape_char(codigo_perfil);
+		if (strcmp(usuario, login.usuario) == 0 && strcmp(senha, login.senha) == 0 && 
 		  	strcmp(codigo_perfil_normalizado, login.codigo_perfil) == 0){
-		  	return atoi(col[0]);
+		  	return atoi(codigo_usuario);
 	  	}
 	  }
 	}
@@ -107,3 +101,5 @@ char* get_password(char *display_message){
     } while( c!= 13);
     return entrada;
 }
+
+#endif /* _USUARIO_H */
