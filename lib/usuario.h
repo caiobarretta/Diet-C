@@ -18,11 +18,12 @@ int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
 	do{
 		char usuario[TAMANHO_MAXIMO_CARACTERES_USUARIO];
+		char senha[TAMANHO_MAXIMO_CARACTERES_SENHA];
+		
 		struct Login login;
 		printf("Entre com seu usuário:");
 		setbuf(stdin, NULL);
 		fgets(usuario, TAMANHO_MAXIMO_CARACTERES_USUARIO, stdin);
-		
 	  	char* usuario_normalizado = str_normalize_escape_char(usuario);
 	  	
 		//Validar gambiarra com a professora
@@ -30,9 +31,15 @@ int autenticacao_usuario(char* codigo_perfil){
 		char* senha_copia = (char*)malloc(strlen(senha)*sizeof(char));
 		strcpy(senha_copia, senha);
 		
+		//printf("Entre com sua senha:");
+		//setbuf(stdin, NULL);
+		//fgets(senha, TAMANHO_MAXIMO_CARACTERES_USUARIO, stdin);
+		//char* senha_normalizada = str_normalize_escape_char(senha);
+		
 		login.codigo_perfil = codigo_perfil;
 		login.usuario = usuario_normalizado;
 		login.senha = senha_copia;
+		//login.senha = senha_normalizada;
 		usuario_senha_valida = valida_login(login);
 		login.codigo_usuario = usuario_senha_valida;
 		
