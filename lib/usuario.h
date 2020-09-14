@@ -18,7 +18,7 @@ int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
 	do{
 		char usuario[TAMANHO_MAXIMO_CARACTERES_USUARIO];
-		char senha[TAMANHO_MAXIMO_CARACTERES_SENHA];
+		//char senha[TAMANHO_MAXIMO_CARACTERES_SENHA];
 		
 		struct Login login;
 		printf("Entre com seu usuário:");
@@ -69,12 +69,10 @@ int valida_login(struct Login login){
 	  // Lê uma linha (inclusive com o '\n')
 	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
 	  if (result){  // Se foi possível ler
-	  
 	  	char* codigo_usuario = split_char_position(row, CARACTER_SEPARACAO, 0);
-	  	char* codigo_perfil = split_char_position(row, CARACTER_SEPARACAO, 3);
 	  	char* usuario = split_char_position(row, CARACTER_SEPARACAO, 1);
 	  	char* senha = split_char_position(row, CARACTER_SEPARACAO, 2);
-	  	
+	  	char* codigo_perfil = split_char_position(row, CARACTER_SEPARACAO, 3);
 	  	char* codigo_perfil_normalizado = str_normalize_escape_char(codigo_perfil);
 		if (strcmp(usuario, login.usuario) == 0 && strcmp(senha, login.senha) == 0 && 
 		  	strcmp(codigo_perfil_normalizado, login.codigo_perfil) == 0){

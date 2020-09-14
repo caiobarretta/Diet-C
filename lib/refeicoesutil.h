@@ -1,101 +1,60 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "structutil.h"
+#include "definicoes.h"
+#include "selecaoutil.h"
 
 #ifndef _REFEICOESUTIL_H
 #define _REFEICOESUTIL_H
 
 char* carrega_refeicoes_input();
-char* convert_inteiro_em_refeicao(int dia_semana);
-char* carrega_refeicoes_pelo_vetor(int vetor_refeicoes[6]);
+struct Selecao* carrega_selecao_refeicoes();
 
 //Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
 char* carrega_refeicoes_input(){
 	
-	int vetor_refeicoes[6];
-	memset(vetor_refeicoes, 0, sizeof(int)*7);
+	int vetor_opcoes[QTD_REFEICOES];
+	memset(vetor_opcoes, 0, sizeof(int)*QTD_REFEICOES);
 	setlocale(LC_ALL, "Portuguese");
 	
-	char* refeicoes_escolhidas;
-	
-	int opcao = -1;
-	do{
-		//Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-		refeicoes_escolhidas = carrega_refeicoes_pelo_vetor(vetor_refeicoes);
-		printf("Dias da semanas escolhidos:%s.\n", refeicoes_escolhidas);
-		printf("Entre com 1 para adicionar/remover Cafe da manha.\n");
-		printf("Entre com 2 para adicionar/remover Brunch.\n");
-		printf("Entre com 3 para adicionar/remover Almoco.\n");
-		printf("Entre com 4 para adicionar/remover Jantar.\n");
-		printf("Entre com 5 para adicionar/remover Sobremesa.\n");
-		printf("Entre com 6 para adicionar/remover Ceia.\n");
-		printf("Ou entre com 0 para voltar: ");
-		scanf("%d", &opcao);
-		system("cls");
-		if(opcao >= 1 && opcao <= 6){
-			if(vetor_refeicoes[opcao-1] == 0)
-				vetor_refeicoes[opcao-1] = 1;
-			else
-				vetor_refeicoes[opcao-1] = 0;
-		}
-		else{
-			if(opcao != 0){
-				printf("Opção Inválida!\n");
-				system("pause");
-				system("cls");
-			}
-		}
-	}while(opcao != 0);
-	printf("Retornando......\n");
-	system("pause");
-	system("cls");
-	return refeicoes_escolhidas;
+	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_REFEICOES);
+	selecao = carrega_selecao_refeicoes();
+	return monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_obrigatoria);
 }
 
-char* convert_inteiro_em_refeicao(int dia_semana){
+struct Selecao* carrega_selecao_refeicoes(){
+	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_REFEICOES);
 	//Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-	char* nome_dia_semana = (char*)malloc(sizeof(char)*4);
-	switch(dia_semana){
-		case 1:
-			nome_dia_semana = "Cafe da manha|";
-			break;
-		case 2:
-			nome_dia_semana = "Brunch|";
-			break;
-		case 3:
-			nome_dia_semana = "Lanche|";
-			break;
-		case 4:
-			nome_dia_semana = "Jantar|";
-			break;
-		case 5:
-			nome_dia_semana = "Sobremesa|";
-			break;
-		case 6:
-			nome_dia_semana = "Ceia|";
-			break;
-		default:
-			printf("Opção Inválida!\n");
-	}
-}
-
-char* carrega_refeicoes_pelo_vetor(int vetor_refeicoes[6]){
-	int i =0, len_refeicoes=0;
-	for(i=0; i<6; i++){
-		if(vetor_refeicoes[i] == 1){
-			char* refeicao = convert_inteiro_em_refeicao(i+1);
-			len_refeicoes += strlen(refeicao);
-		}
-	}
+	selecao[0].codigo_selecao = 1;
+	selecao[0].conteudo_selecao = "Cafe da manha|";
+	selecao[0].conteudo_exibicao_selecao = "Cafe da manha";
 	
-	char* semanas_selecionadas = (char*)malloc(sizeof(char)*len_refeicoes);
-	memset(semanas_selecionadas, 0, sizeof(char)*len_refeicoes);
-	for(i=0; i<6; i++){
-		if(vetor_refeicoes[i] == 1){
-			char* nome_refeicao = convert_inteiro_em_refeicao(i+1);
-			strcat(semanas_selecionadas, nome_refeicao);
-		}
-	}
-	return semanas_selecionadas;
+	selecao[1].codigo_selecao = 2;
+	selecao[1].conteudo_selecao = "Brunch|";
+	selecao[1].conteudo_exibicao_selecao = "Brunch";
+	
+	selecao[2].codigo_selecao = 3;
+	selecao[2].conteudo_selecao = "Almoco|";
+	selecao[2].conteudo_exibicao_selecao = "Almoco";
+	
+	selecao[3].codigo_selecao = 4;
+	selecao[3].conteudo_selecao = "Lanche|";
+	selecao[3].conteudo_exibicao_selecao = "Lanche";
+	
+	selecao[4].codigo_selecao = 5;
+	selecao[4].conteudo_selecao = "Jantar|";
+	selecao[4].conteudo_exibicao_selecao = "Jantar";
+	
+	selecao[5].codigo_selecao = 6;
+	selecao[5].conteudo_selecao = "Sobremesa|";
+	selecao[5].conteudo_exibicao_selecao = "Sobremesa";
+	
+	selecao[6].codigo_selecao = 7;
+	selecao[6].conteudo_selecao = "Ceia|";
+	selecao[6].conteudo_exibicao_selecao = "Ceia";
+
+	return selecao;
 }
 
 #endif /* _REFEICOESUTIL_H */

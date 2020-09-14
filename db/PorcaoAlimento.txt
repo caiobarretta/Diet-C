@@ -1,20 +1,20 @@
-1,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-2,sa,23,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-3,teste,teste,dom|seg|ter|qua|qui|sex|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-4,teste,teste,dom|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-5,Teste,teste 1234/teste 4321/teste 8765r|SobremâĞøq,dom|seg|ter|,Cafe da manha|Brunch|
-6,Teste,Teste,dom|,Cafe da manha|
-7,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-8,sa,23,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-9,teste,teste,dom|seg|ter|qua|qui|sex|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-10,teste,teste,dom|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-11,Teste,teste 1234/teste 4321/teste 8765r|SobremâĞøq,dom|seg|ter|,Cafe da manha|Brunch|
-12,Teste,Teste,dom|,Cafe da manha|
-10,Teste,Teste,dom|seg|,
-10,Teste,Teste,dom|,Cafe da manha|
-10,Teste,Teste,dom|,Cafe da manha|
-10,Teste,Teste,dom|,Cafe da manha|
-10,manha|B–$Q€hTeste 1234,manha|B–$Q€hteste 123456,manha|B–$Q€hdom|,manha|B–$Q€hCafe da manha|
-10,Teste,Teste,dom|,Cafe da manha|
-10,Teste,Teste,dom|,Cafe da manha|
-10,Teste,Teste ,dom|,Cafe da manha|
+1,Teste,Teste,dom|,Cafe da manha|
+2,Teste,Teste,dom|,Cafe da manha|
+3,Teste,Teste,dom|,Cafe da manha|
+4,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Lanche|Jantar|Sobremesa|Ceia|
+5,Teste,Teste,dom|,Cafe da manha|
+6,Teste,Teste,dom|seg|ter|qua|qui|,Cafe da manha|
+7,Teste,Teste,dom|,Cafe da manha|
+8,Teste,Teste,Nenhum,Cafe da manha|
+9,Teste,Teste,Nenhum,Cafe da manha|
+10,Teste,Teste,Nenhum,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+11,Teste,Teste,Nenhum,Cafe da manha|
+120,Teste,Teste,Nenhum,Cafe da manha|
+121,Teste,Teste,dom|,Cafe da manha|
+1210,Teste,Teste,dom|,Cafe da manha|
+1211,Teste,Teste,dom|,Cafe da manha|
+12110,Teste,Teste,dom|,Cafe da manha|
+12111,Teste,Teste,dom|,Cafe da manha|
+12113,Tete,teste,Nenhum,Cafe da manha|
+12114,Teste,Teste,dom|,Cafe da manha|
+12115,Teste,Teste,dom|,Cafe da manha|

@@ -15,6 +15,12 @@ struct Pesquisa{
 	int coluna_arquivo;
 };
 
+struct Selecao{
+	int codigo_selecao;
+	char* conteudo_selecao;
+	char* conteudo_exibicao_selecao;
+};
+
 struct PorcaoAlimento{
 	int codigo_porcao_alimento;
 	char* nome;

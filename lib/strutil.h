@@ -15,26 +15,36 @@ char* str_normalize_escape_char(const char* text_source);
 char* convert_int_to_string(int value, char* str);
 
 char* split_char_position(const char* frase, const char separador, const int posicao){
-	int i = 0, qtd_separador = 0, contador_trecho_frase = 0, index_inicio = 0, index_fim = 0;
+	int i = 0, qtd_separador = 0, contador_trecho_frase = 0;
 	char* trecho_frase;
 	for(i=0; i<strlen(frase); i++){
 		char caracter = frase[i];
-		if(separador == caracter)
+		if(separador == caracter){
 			qtd_separador++;
-		if(qtd_separador == posicao && frase[i] != separador){
-			if(index_inicio == 0) 
-				index_inicio = i;
-			index_fim = i;
+		}
+		if(qtd_separador == posicao && caracter != separador){
 			contador_trecho_frase++;
 		}
 	}
+	
 	trecho_frase = (char*)malloc(sizeof(char)*contador_trecho_frase);
 	memset(trecho_frase, 0, sizeof(char)*contador_trecho_frase);
 	
 	contador_trecho_frase = 0;
-	for(i=index_inicio; i<=index_fim; i++){
-		trecho_frase[contador_trecho_frase] = frase[i];
-		contador_trecho_frase++;
+	qtd_separador = 0;
+	for(i=0; i<strlen(frase); i++){
+		char caracter = frase[i];
+		if(separador == caracter){
+			qtd_separador++;
+		}
+		if(qtd_separador == posicao && caracter != separador){
+			trecho_frase[contador_trecho_frase] = frase[i];
+			contador_trecho_frase++;
+		}
+	}
+	//Validar gambiarra com a professora
+	if(contador_trecho_frase <= 3){
+		trecho_frase[contador_trecho_frase] = '\0';
 	}
 	return trecho_frase;
 }

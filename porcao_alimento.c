@@ -15,9 +15,9 @@ void main_cadastro_porcao_alimento(char* codigo_perfil);
 void imprime_porcao_de_alimentos_cadastradas();
 void pesquisar_porcao_de_alimento();
 
-void main(){
-	main_cadastro_porcao_alimento("N");
-}
+//void main(){
+//	main_cadastro_porcao_alimento("N");
+//}
 
 void main_cadastro_porcao_alimento(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");

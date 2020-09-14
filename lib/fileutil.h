@@ -30,7 +30,7 @@ int retorna_last_id_file(const char* FILE_NAME){
 	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até TAMANHO_MAXIMO_CARACTERES_LINHA caracteres ou até o '\n'
 	  if (result){  // Se foi possível ler
 		char* sub_string = split_char_position(row, CARACTER_SEPARACAO, 0);
-	  	int id_int = atoi(sub_string);
+		int id_int = atoi(sub_string);
 	  	if(max_id_file < id_int){
 	  		max_id_file = id_int;
 		  }
