@@ -29,4 +29,11 @@ struct PorcaoAlimento{
 	char* refeicoes;
 };
 
+struct Dieta{
+	int codigo_dieta;
+	char* nome;
+	char* descricao;
+	char* porcoes;
+};
+
 #endif /* _STRUCTUTIL_H */

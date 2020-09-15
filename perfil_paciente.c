@@ -11,7 +11,8 @@ void main_perfil_paciente(){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_perfil_paciente();
 	int usuario_senha_valida = autenticacao_usuario(CODIGO_PERFIL_PACIENTE);
-	if(usuario_senha_valida == 1)
+	printf("\nusuario_senha_valida:%d\n",usuario_senha_valida);
+	if(usuario_senha_valida >= 1)
 	{
 		int opcao = -1;
 		do{

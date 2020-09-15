@@ -26,5 +26,6 @@
 
 #define CAMIMNHO_ARQUIVO_USUARIO "db\\Usuarios.txt"
 #define CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO "db\\PorcaoAlimento.txt"
+#define CAMIMNHO_ARQUIVO_DIETA "db\\Dieta.txt"
 
 #endif /* _DEFINICOES_H */

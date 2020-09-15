@@ -9,6 +9,7 @@
 #include "getvaluesutil.h"
 #include "pesquisa.h"
 #include "fileutil.h"
+#include "selecaoutil.h"
 
 #ifndef _STRUCTPORCAOALIMENTO_H
 #define _STRUCTPORCAOALIMENTO_H
@@ -26,6 +27,8 @@ char* retorna_nome_porcao_alimento_input();
 char* retorna_descricao_porcao_alimento_input();
 
 void monta_pesquisa_porcao_de_alimento(char* mensagem_erro);
+
+char* carrega_selecao_porcao_alimento();
 
 char* retorna_codigo_porcao_alimento_input(){
 	return retorna_codigo_input_normalized_escape_char("código da porção de alimento");
@@ -121,4 +124,13 @@ void monta_pesquisa_porcao_de_alimento(char* mensagem_erro){
 	
 }
 
+char* carrega_selecao_porcao_alimento(){
+	int vetor_opcoes[QTD_DIAS_DA_SEMANA];
+	memset(vetor_opcoes, 0, sizeof(int)*QTD_DIAS_DA_SEMANA);
+	setlocale(LC_ALL, "Portuguese");
+	
+	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_DIAS_DA_SEMANA);
+	selecao = carrega_selecao_dias_da_semana();
+	return monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_opcional);	
+}
 #endif /* _STRUCTPORCAOALIMENTO_H */
