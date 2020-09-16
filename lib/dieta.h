@@ -9,6 +9,7 @@
 #include "getvaluesutil.h"
 #include "pesquisa.h"
 #include "fileutil.h"
+#include "porcaoalimento.h"
 
 #ifndef _STRUCTDIETA_H
 #define _STRUCTDIETA_H
@@ -44,7 +45,7 @@ struct Dieta carrega_dieta_input(){
 	
 	dieta.nome = retorna_nome_dieta_input();
 	dieta.descricao = retorna_descricao_dieta_input();
-	dieta.porcoes = 
+	dieta.porcoes = retorna_porcoes_input();
 	
 	return dieta;
 }
@@ -77,6 +78,9 @@ char* monta_csv_texto_dieta(struct Dieta dieta){
 	strcat(texto, CADEIA_CARACTER_SEPARACAO);
 	
 	strcat(texto, dieta.descricao);
+	strcat(texto, CADEIA_CARACTER_SEPARACAO);
+	
+	strcat(texto, dieta.porcoes);
 	
 	strcat(texto, CARACTER_FINAL_DE_LINHA);
 	

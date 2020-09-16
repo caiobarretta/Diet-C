@@ -11,6 +11,9 @@
 
 struct Pesquisa* retorna_pesquisa_padrao();
 
+void executa_pesquisa_arquivo(struct Pesquisa* pesquisa, const char* FILE_NAME, char* mensagem_input_pesquisa, 
+							  int const QTD_ITENS_PESQUISA, char* cabecalho_tabela, char* mensagem_erro);
+
 struct Pesquisa* retorna_pesquisa_padrao(){
 	struct Pesquisa* pesquisa = (struct Pesquisa*)malloc(sizeof(struct Pesquisa)*QTD_ITENS_PESQUISA_PADRAO);
 	

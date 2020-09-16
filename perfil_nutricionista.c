@@ -14,7 +14,6 @@ void main_perfil_nutricionista(){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_perfil_nutricionista();
 	int usuario_senha_valida = autenticacao_usuario(CODIGO_PERFIL_NUTRICIONISTA);
-	printf("\nusuario_senha_valida:%d\n",usuario_senha_valida);
 	if(usuario_senha_valida >= 1)
 	{
 		int opcao = -1;

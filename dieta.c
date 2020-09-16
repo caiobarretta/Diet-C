@@ -15,9 +15,9 @@ void main_cadastro_dieta(char* codigo_perfil);
 void imprime_dietas_cadastradas();
 void pesquisar_dieta();
 
-void main(){
-	main_cadastro_dieta("N");
-}
+//void main(){
+//	main_cadastro_dieta("N");
+//}
 
 void main_cadastro_dieta(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");

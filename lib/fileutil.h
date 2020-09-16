@@ -15,6 +15,10 @@ void imprime_conteudo_de_arquivo_em_formato_de_tabela(const char* FILE_NAME, cha
 
 void pesquisa_conteudo_em_arquivo(const char* FILE_NAME, const char* pesquisa, const int coluna, char* mensagem_erro, char* cabecalho_tabela);
 
+int retorna_quantidade_registro_arquivo(const char* FILE_NAME);
+
+struct Selecao* carrega_selecao_de_arquivo(const char* FILE_NAME, int const QTD_LINHAS);
+
 int retorna_last_id_file(const char* FILE_NAME){
 	FILE *arq = NULL;
 	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
@@ -178,6 +182,75 @@ void pesquisa_conteudo_em_arquivo(const char* FILE_NAME, const char* pesquisa, c
 	printf("Fim da pesquisa\n");
 	system("pause");
 	system("cls");
+}
+
+int retorna_quantidade_registro_arquivo(const char* FILE_NAME){
+	FILE *arq = NULL;
+	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
+	int count_lines = 0;
+	
+	// Abre um arquivo TEXTO para LEITURA
+	arq = fopen(FILE_NAME, "rt");
+	if (arq == NULL){  // Se houve erro na abertura
+	 return 0;
+	}
+	while (!feof(arq)){
+	  // Lê uma linha (inclusive com o '\n')
+	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até TAMANHO_MAXIMO_CARACTERES_LINHA caracteres ou até o '\n'
+	  if (result){  // Se foi possível ler
+		count_lines++;
+	  }
+	}
+	fclose(arq);
+	return count_lines;
+}
+
+struct Selecao* carrega_selecao_de_arquivo(const char* FILE_NAME, int const QTD_LINHAS){
+	FILE *arq = NULL;
+	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
+	int count_lines = 0;
+	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_LINHAS);
+	
+	char* CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO = (char*)malloc(sizeof(char));
+	memset(CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO, 0, sizeof(char));
+	CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO[0] = CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO;
+	
+	char* CADEIA_CARACTER_SEPARADOR_SELECAO = (char*)malloc(sizeof(char));
+	memset(CADEIA_CARACTER_SEPARADOR_SELECAO, 0, sizeof(char));
+	CADEIA_CARACTER_SEPARADOR_SELECAO[0] = CARACTER_SEPARADOR_SELECAO;
+	
+	// Abre um arquivo TEXTO para LEITURA
+	arq = fopen(FILE_NAME, "rt");
+	if (arq == NULL){  // Se houve erro na abertura
+	 return 0;
+	}
+	while (!feof(arq)){
+	  // Lê uma linha (inclusive com o '\n')
+	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até TAMANHO_MAXIMO_CARACTERES_LINHA caracteres ou até o '\n'
+	  if (result){  // Se foi possível ler
+		char* sub_string_codigo = split_char_position(row, CARACTER_SEPARACAO, 0);
+		char* sub_string_nome = split_char_position(row, CARACTER_SEPARACAO, 1);
+		
+		int tamanho_nome_com_separador = (strlen(sub_string_codigo) + strlen(CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO));
+		tamanho_nome_com_separador += (strlen(sub_string_nome) + strlen(CADEIA_CARACTER_SEPARADOR_SELECAO));
+		
+		char* nome_com_separador= (char*)malloc(sizeof(tamanho_nome_com_separador));
+		strcat(nome_com_separador, sub_string_codigo);
+		strcat(nome_com_separador, CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO);
+		strcat(nome_com_separador, sub_string_nome);
+		strcat(nome_com_separador, CADEIA_CARACTER_SEPARADOR_SELECAO);
+			
+		int codigo = atoi(sub_string_codigo);
+		selecao[count_lines].codigo_selecao = codigo;
+		selecao[count_lines].conteudo_exibicao_selecao = nome_com_separador;
+		selecao[count_lines].conteudo_selecao = nome_com_separador;
+		count_lines++;
+		
+	  }
+	}
+	fclose(arq);
+	
+	return selecao;
 }
 
 #endif /* _FILEUTIL_H */
