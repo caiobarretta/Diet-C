@@ -15,9 +15,9 @@ char* str_normalize_escape_char(const char* text_source);
 char* convert_int_to_string(int value, char* str);
 
 char* split_char_position(const char* frase, const char separador, const int posicao){
-	int i = 0, qtd_separador = 0, contador_trecho_frase = 0;
+	int i = 0, qtd_separador = 0, contador_trecho_frase = 0, tamanho_frase = strlen(frase)-1;
 	char* trecho_frase;
-	for(i=0; i<strlen(frase); i++){
+	for(i=0; i<tamanho_frase; i++){
 		char caracter = frase[i];
 		if(separador == caracter){
 			qtd_separador++;
@@ -27,12 +27,12 @@ char* split_char_position(const char* frase, const char separador, const int pos
 		}
 	}
 	
-	trecho_frase = (char*)malloc(sizeof(char)*contador_trecho_frase);
-	memset(trecho_frase, 0, sizeof(char)*contador_trecho_frase);
+	trecho_frase = (char*)malloc(sizeof(char)*contador_trecho_frase+1);
+	memset(trecho_frase, 0, sizeof(char)*contador_trecho_frase+1);
 	
 	contador_trecho_frase = 0;
 	qtd_separador = 0;
-	for(i=0; i<strlen(frase); i++){
+	for(i=0; i<tamanho_frase; i++){
 		char caracter = frase[i];
 		if(separador == caracter){
 			qtd_separador++;
@@ -42,10 +42,10 @@ char* split_char_position(const char* frase, const char separador, const int pos
 			contador_trecho_frase++;
 		}
 	}
-	//Validar gambiarra com a professora
-	if(contador_trecho_frase <= 3){
-		trecho_frase[contador_trecho_frase] = '\0';
-	}
+	//[C][A][I][O][\0]
+	//if(contador_trecho_frase <= 3){
+	trecho_frase[contador_trecho_frase+1] = '\0';
+	//}
 	return trecho_frase;
 }
 
@@ -98,4 +98,17 @@ char* convert_int_to_string(int value, char* str){
     return str;
 }
 
+int convert_string_to_int(char* str){
+	
+	int len_to_int = strlen(str), i =0;
+	char* str_to_int = (char*)malloc(sizeof(char)*len_to_int);
+	memset(str_to_int, 0, sizeof(char)*len_to_int);
+	
+	for(i=0; i<=len_to_int; i++){
+		printf("str[%d]:%c\n", i, str[i]);
+		str_to_int[i] = str[i];
+	}
+	int value = atoi(str_to_int);
+	return value;
+}
 #endif /* _STRUTIL_H */

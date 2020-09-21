@@ -2,9 +2,10 @@
 #include <locale.h>
 #include <conio.h>
 #include <string.h>
+#include "lib/usuario.h"
 #include "porcao_alimento.c"
-#include "dieta.c"
-#include "paciente.c"
+//#include "dieta.c"
+//#include "paciente.c"
  
 void imprime_bem_vindo_perfil_nutricionista();
 
@@ -31,10 +32,10 @@ void main_perfil_nutricionista(){
 					main_cadastro_porcao_alimento(CODIGO_PERFIL_NUTRICIONISTA);
 					break;
 				case 2:
-					main_cadastro_dieta(CODIGO_PERFIL_NUTRICIONISTA);
+					//main_cadastro_dieta(CODIGO_PERFIL_NUTRICIONISTA);
 					break;
 				case 3:
-					main_cadastro_paciente(CODIGO_PERFIL_NUTRICIONISTA);
+					//main_cadastro_paciente(CODIGO_PERFIL_NUTRICIONISTA);
 					break;
 				default:
 					printf("Opção Inválida!\n");

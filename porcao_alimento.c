@@ -78,6 +78,7 @@ void imprime_bem_vindo_cadastro_porcao_alimento(){
 void cadastrar_nova_porcao_de_alimento(){
 	/* Função que carrega o maior código de um arquivo */
 	int max_codigo_porcao_alimento = retorna_last_id_file(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO);
+	//int max_codigo_porcao_alimento =  0;//Mock
 	max_codigo_porcao_alimento++;
 	
 	char* texto;
@@ -90,12 +91,12 @@ void cadastrar_nova_porcao_de_alimento(){
 }
 
 void imprime_porcao_de_alimentos_cadastradas(){
-	char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
-	char* cabecalho_tabela = monta_cabecalho_tabela_porcao_alimento();
-	imprime_conteudo_de_arquivo_em_formato_de_tabela(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, mensagem_erro, cabecalho_tabela);
+	//char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
+	//char* cabecalho_tabela = monta_cabecalho_tabela_porcao_alimento();
+	//imprime_conteudo_de_arquivo_em_formato_de_tabela(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, mensagem_erro, cabecalho_tabela);
 }
 
 void pesquisar_porcao_de_alimento(){
-	char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
-	monta_pesquisa_porcao_de_alimento(mensagem_erro);
+	//char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
+	//monta_pesquisa_porcao_de_alimento(mensagem_erro);
 }

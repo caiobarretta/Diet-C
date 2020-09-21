@@ -18,7 +18,6 @@ int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
 	do{
 		char usuario[TAMANHO_MAXIMO_CARACTERES_USUARIO];
-		//char senha[TAMANHO_MAXIMO_CARACTERES_SENHA];
 		
 		struct Login login;
 		printf("Entre com seu usuário:");
@@ -26,20 +25,19 @@ int autenticacao_usuario(char* codigo_perfil){
 		fgets(usuario, TAMANHO_MAXIMO_CARACTERES_USUARIO, stdin);
 	  	char* usuario_normalizado = str_normalize_escape_char(usuario);
 	  	
-		//Validar gambiarra com a professora
 		char* senha = get_password("Entre com sua senha:");
-		char* senha_copia = (char*)malloc(strlen(senha)*sizeof(char));
-		strcpy(senha_copia, senha);
+		char* senha_aux = (char*)malloc(strlen(senha)*sizeof(char));
+		strcpy(senha_aux, senha);
+				
+		login.codigo_perfil = (char*)malloc(strlen(codigo_perfil)*sizeof(char));
+		strcpy(login.codigo_perfil, codigo_perfil);
 		
-		//printf("Entre com sua senha:");
-		//setbuf(stdin, NULL);
-		//fgets(senha, TAMANHO_MAXIMO_CARACTERES_USUARIO, stdin);
-		//char* senha_normalizada = str_normalize_escape_char(senha);
+		login.usuario = (char*)malloc(strlen(usuario_normalizado)*sizeof(char));
+		strcpy(login.usuario, usuario_normalizado);
 		
-		login.codigo_perfil = codigo_perfil;
-		login.usuario = usuario_normalizado;
-		login.senha = senha_copia;
-		//login.senha = senha_normalizada;
+		login.senha = (char*)malloc(strlen(senha_aux)*sizeof(char));
+		strcpy(login.senha, senha_aux);
+		
 		usuario_senha_valida = valida_login(login);
 		login.codigo_usuario = usuario_senha_valida;
 		
@@ -73,9 +71,9 @@ int valida_login(struct Login login){
 	  	char* usuario = split_char_position(row, CARACTER_SEPARACAO, 1);
 	  	char* senha = split_char_position(row, CARACTER_SEPARACAO, 2);
 	  	char* codigo_perfil = split_char_position(row, CARACTER_SEPARACAO, 3);
-	  	char* codigo_perfil_normalizado = str_normalize_escape_char(codigo_perfil);
+	  	
 		if (strcmp(usuario, login.usuario) == 0 && strcmp(senha, login.senha) == 0 && 
-		  	strcmp(codigo_perfil_normalizado, login.codigo_perfil) == 0){
+		  	strcmp(codigo_perfil, login.codigo_perfil) == 0){
 		  	return atoi(codigo_usuario);
 	  	}
 	  }
@@ -104,6 +102,7 @@ char* get_password(char *display_message){
             printf("%s", "\b \b");
         }
     } while( c!= 13);
+    printf("\n");
     return entrada;
 }
 

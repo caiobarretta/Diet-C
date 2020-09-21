@@ -38,6 +38,7 @@ int retorna_last_id_file(const char* FILE_NAME){
 	  	if(max_id_file < id_int){
 	  		max_id_file = id_int;
 		  }
+		free(sub_string);
 	  }
 	}
 	fclose(arq);
