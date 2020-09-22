@@ -1,2 +1,4 @@
 1,Teste,Teste,dom|,Cafe da manha|
 2,Teste,Teste,dom|,Cafe da manha|
+3,Cadastro teste,Cadastro Teste,dom|,Cafe da manha|
+4,Teste novo cadastro,Teste novo cadastro,dom|,Cafe da manha|

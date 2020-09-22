@@ -9,22 +9,25 @@
 #include "lib/fileutil.h"
 #include "lib/pesquisa.h"
 
-void imprime_bem_vindo_cadastro_porcao_alimento();
-void cadastrar_nova_porcao_de_alimento();
-void main_cadastro_porcao_alimento(char* codigo_perfil);
-void imprime_porcao_de_alimentos_cadastradas();
-void pesquisar_porcao_de_alimento();
+#ifndef _PORCAO_ALIMENTO_C
+#define _PORCAO_ALIMENTO_C
 
-//void main(){
-//	main_cadastro_porcao_alimento("N");
-//}
+void imprime_bem_vindo_cadastro_porcao_alimento();
+
+void cadastrar_nova_porcao_de_alimento();
+
+void main_cadastro_porcao_alimento(char* codigo_perfil);
+
+void imprime_porcao_de_alimentos_cadastradas();
+
+void pesquisar_porcao_de_alimento();
 
 void main_cadastro_porcao_alimento(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_cadastro_porcao_alimento();
 	int opcao = -1;
 	do{
-		if(strcmp(codigo_perfil, "N") == 0)
+		if(strcmp(codigo_perfil, CODIGO_PERFIL_NUTRICIONISTA) == 0)
 			printf("Entre com 1 para opção Cadastrar Nova Porção de alimento.\n");
 		printf("Entre com 2 para opção Visualizar as Porções de alimento cadastradas.\n");
 		printf("Entre com 3 para opção Pesquisar Porção de alimento.\n");
@@ -35,7 +38,7 @@ void main_cadastro_porcao_alimento(char* codigo_perfil){
 			case 0:
 				break;
 			case 1:
-				if(strcmp(codigo_perfil, "N") == 0){
+				if(strcmp(codigo_perfil, CODIGO_PERFIL_NUTRICIONISTA) == 0){
 					printf("Cadastro Nova Porção de alimento\n");
 					cadastrar_nova_porcao_de_alimento();
 				}
@@ -78,7 +81,6 @@ void imprime_bem_vindo_cadastro_porcao_alimento(){
 void cadastrar_nova_porcao_de_alimento(){
 	/* Função que carrega o maior código de um arquivo */
 	int max_codigo_porcao_alimento = retorna_last_id_file(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO);
-	//int max_codigo_porcao_alimento =  0;//Mock
 	max_codigo_porcao_alimento++;
 	
 	char* texto;
@@ -91,12 +93,14 @@ void cadastrar_nova_porcao_de_alimento(){
 }
 
 void imprime_porcao_de_alimentos_cadastradas(){
-	//char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
-	//char* cabecalho_tabela = monta_cabecalho_tabela_porcao_alimento();
-	//imprime_conteudo_de_arquivo_em_formato_de_tabela(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, mensagem_erro, cabecalho_tabela);
+	char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
+	char* cabecalho_tabela = monta_cabecalho_tabela_porcao_alimento();
+	imprime_conteudo_de_arquivo_em_formato_de_tabela(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, mensagem_erro, cabecalho_tabela);
 }
 
 void pesquisar_porcao_de_alimento(){
-	//char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
-	//monta_pesquisa_porcao_de_alimento(mensagem_erro);
+	char* mensagem_erro = "Não existem dados de porção de alimentos ou ocorreu algum erro na solicitação de leitura.";
+	monta_pesquisa_porcao_de_alimento(mensagem_erro);
 }
+
+#endif /* _PORCAO_ALIMENTO_C */

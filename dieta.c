@@ -9,15 +9,18 @@
 #include "lib/fileutil.h"
 #include "lib/pesquisa.h"
 
-void imprime_bem_vindo_cadastro_dieta();
-void cadastrar_nova_dieta();
-void main_cadastro_dieta(char* codigo_perfil);
-void imprime_dietas_cadastradas();
-void pesquisar_dieta();
+#ifndef _DIETA_C
+#define _DIETA_C
 
-//void main(){
-//	main_cadastro_dieta("N");
-//}
+void imprime_bem_vindo_cadastro_dieta();
+
+void cadastrar_nova_dieta();
+
+void main_cadastro_dieta(char* codigo_perfil);
+
+void imprime_dietas_cadastradas();
+
+void pesquisar_dieta();
 
 void main_cadastro_dieta(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
@@ -100,3 +103,4 @@ void pesquisar_dieta(){
 	monta_pesquisa_dieta(mensagem_erro);
 }
 
+#endif /* _DIETA_C */
