@@ -28,6 +28,10 @@ char* retorna_descricao_dieta_input();
 
 void monta_pesquisa_dieta(char* mensagem_erro);
 
+char* retorna_dietas_input();
+
+int retorna_qtd_dieta();
+
 char* retorna_codigo_dieta_input(){
 	return retorna_codigo_input_normalized_escape_char("código da dieta");
 }
@@ -115,6 +119,23 @@ void monta_pesquisa_dieta(char* mensagem_erro){
 	
 	executa_pesquisa_arquivo(pesquisa, CAMIMNHO_ARQUIVO_DIETA, mensagem_input_pesquisa, QTD_ITENS_PESQUISA_PADRAO, cabecalho_tabela, mensagem_erro);
 	
+}
+
+char* retorna_dietas_input(){
+	int qtd_dieta = retorna_qtd_dieta();
+	
+	int vetor_opcoes[qtd_dieta];
+	memset(vetor_opcoes, 0, sizeof(int)*qtd_dieta);
+	
+	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*qtd_dieta);
+	memset(selecao, 0, sizeof(struct Selecao)*qtd_dieta);
+	
+	selecao = carrega_selecao_de_arquivo(CAMIMNHO_ARQUIVO_DIETA, qtd_dieta);
+	return monta_menu_selecao(vetor_opcoes, qtd_dieta, selecao, selecao_obrigatoria);	
+}
+
+int retorna_qtd_dieta(){
+	return retorna_quantidade_registro_arquivo(CAMIMNHO_ARQUIVO_DIETA);
 }
 
 #endif /* _STRUCTDIETA_H */

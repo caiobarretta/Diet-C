@@ -36,4 +36,12 @@ struct Dieta{
 	char* porcoes;
 };
 
+struct Paciente{
+	int codigo_paciente;
+	char* nome;
+	char* descricao;
+	char* dietas;
+	int codigo_usuario;
+};
+
 #endif /* _STRUCTUTIL_H */

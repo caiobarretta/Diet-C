@@ -5,7 +5,9 @@
 #include "lib/usuario.h"
 
 void imprime_bem_vindo();
+
 void perfil_nutricionista();
+
 void perfil_paciente();
 
 int main(){

@@ -6,7 +6,7 @@
 #include "lib/definicoes.h"
 #include "porcao_alimento.c"
 #include "dieta.c"
-//#include "paciente.c"
+#include "paciente.c"
  
 void imprime_bem_vindo_perfil_nutricionista();
 
@@ -36,7 +36,7 @@ void main_perfil_nutricionista(){
 					imprime_bem_vindo_perfil_nutricionista();
 					break;
 				case 3:
-					//main_cadastro_paciente(CODIGO_PERFIL_NUTRICIONISTA);
+					main_cadastro_paciente(CODIGO_PERFIL_NUTRICIONISTA);
 					imprime_bem_vindo_perfil_nutricionista();
 					break;
 				default:
