@@ -42,6 +42,7 @@ struct Paciente{
 	char* descricao;
 	char* dietas;
 	int codigo_usuario;
+	struct Login login;
 };
 
 #endif /* _STRUCTUTIL_H */

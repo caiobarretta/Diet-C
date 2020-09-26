@@ -87,9 +87,18 @@ void cadastrar_novo_paciente(){
 	struct Paciente paciente = carrega_paciente_input();
 	paciente.codigo_paciente = max_codigo_paciente;
 	texto = monta_csv_texto_paciente(paciente);
-	char* mensagem_erro = "Ocorreu um erro ao salvar dados da pacientes.";
+	char* mensagem_erro = "Ocorreu um erro ao salvar dados da paciente.";
 	
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_PACIENTE, texto, mensagem_erro);
+	
+	int max_codigo_login = retorna_last_id_file(CAMIMNHO_ARQUIVO_USUARIO);
+	max_codigo_login++;
+	char* mensagem_erro_login = "Ocorreu um erro ao salvar dados do login do paciente.";
+	char* texto_login;
+	paciente.login.codigo_usuario = max_codigo_login;
+	texto_login = monta_csv_texto_login(paciente.login);
+	
+	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_USUARIO, texto_login, mensagem_erro_login);
 }
 
 void imprime_pacientes_cadastradas(){

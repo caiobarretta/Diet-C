@@ -22,6 +22,10 @@ char* retorna_pesquisa_input(char* module_message);
 
 char* retorna_pesquisa_input_normalized_escape_char(char* module_message);
 
+char* retorna_padrao_input(char* nome_input, char* module_message);
+
+char* retorna_padrao_input_normalized_escape_char(char* nome_input, char* module_message);
+
 char* retorna_codigo_input(char* codigo_nome){
 	char* codigo = (char*)malloc(sizeof(char)*TAMANHO_MAXIMO_CARACTERES_CODIGO);
 	memset(codigo, 0, sizeof(char)*TAMANHO_MAXIMO_CARACTERES_CODIGO);
@@ -76,6 +80,20 @@ char* retorna_pesquisa_input(char* module_message){
 char* retorna_pesquisa_input_normalized_escape_char(char* module_message){
 	char* pesquisa = retorna_pesquisa_input(module_message);
 	return str_normalize_escape_char(pesquisa);
+}
+
+char* retorna_padrao_input(char* nome_input, char* module_message){
+	char* input = (char*)malloc(sizeof(char)*TAMANHO_MAXIMO_CARACTERES_INPUT_PADRAO);
+	printf("Entre com o %s %s (até %d caracteres):", nome_input, module_message, TAMANHO_MAXIMO_CARACTERES_INPUT_PADRAO);
+	memset(input, 0, sizeof(char)*TAMANHO_MAXIMO_CARACTERES_INPUT_PADRAO);
+	setbuf(stdin, NULL);
+	fgets(input, TAMANHO_MAXIMO_CARACTERES_INPUT_PADRAO, stdin);
+	return input;
+}
+
+char* retorna_padrao_input_normalized_escape_char(char* nome_input, char* module_message){
+	char* input = retorna_padrao_input(nome_input, module_message);
+	return str_normalize_escape_char(input);
 }
 
 #endif /* _GETVALUESUTIL_H */

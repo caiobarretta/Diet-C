@@ -6,13 +6,26 @@
 #include "strutil.h"
 #include "structutil.h"
 #include "definicoes.h"
+#include "getvaluesutil.h"
 
 #ifndef _USUARIO_H
 #define _USUARIO_H
 
 int valida_login(struct Login login);
+
 char* get_password(char *display_message);
+
 int autenticacao_usuario(char* codigo_perfil);
+
+char* retorna_usuario_login_input();
+
+char* retorna_senha_login_input();
+
+struct Login carrega_login_input();
+
+char* monta_csv_texto_login(struct Login login);
+
+int len_login(struct Login login);
 
 int autenticacao_usuario(char* codigo_perfil){
 	int usuario_senha_valida = 0, tentativas = 0;
@@ -104,6 +117,74 @@ char* get_password(char *display_message){
     } while( c!= 13);
     printf("\n");
     return entrada;
+}
+
+char* retorna_usuario_login_input(){
+	return retorna_padrao_input_normalized_escape_char("Usuário", "Entre com o usuário do paciente");
+}
+
+char* retorna_senha_login_input(){
+	return retorna_padrao_input_normalized_escape_char("Senha", "Entre com a senha do paciente");
+}
+
+struct Login carrega_login_input(){
+	struct Login login;
+	login.usuario = retorna_usuario_login_input();
+	login.senha = retorna_senha_login_input();
+	login.codigo_perfil = CODIGO_PERFIL_PACIENTE;
+	return login;
+}
+
+char* monta_csv_texto_login(struct Login login){
+	int i = 0;
+	int const quantidade_de_virgulas = 3;
+	
+	char* CADEIA_CARACTER_SEPARACAO = (char*)malloc(sizeof(char));
+	memset(CADEIA_CARACTER_SEPARACAO, 0, sizeof(char));
+	CADEIA_CARACTER_SEPARACAO[0] = CARACTER_SEPARACAO;
+	
+	int len = len_login(login);
+	for(i = 0; i<quantidade_de_virgulas; i++)
+		len += strlen(CADEIA_CARACTER_SEPARACAO);
+		
+	len += strlen(CARACTER_FINAL_DE_LINHA);
+	
+	char* texto = (char*)malloc(sizeof(char)*len);
+	memset(texto, 0, sizeof(char)*len);
+	
+	char codigo_login[TAMANHO_MAXIMO_CARACTERES_CODIGO];
+	memset(codigo_login, 0, TAMANHO_MAXIMO_CARACTERES_CODIGO);
+	convert_int_to_string(login.codigo_usuario, codigo_login);
+	
+	strcat(texto, codigo_login);
+	strcat(texto, CADEIA_CARACTER_SEPARACAO);
+	
+	strcat(texto, login.usuario);
+	strcat(texto, CADEIA_CARACTER_SEPARACAO);
+	
+	strcat(texto, login.senha);
+	strcat(texto, CADEIA_CARACTER_SEPARACAO);
+	
+	strcat(texto, login.codigo_perfil);
+	
+	strcat(texto, CARACTER_FINAL_DE_LINHA);
+	
+	return texto;
+}
+
+int len_login(struct Login login){
+	int len = 0;
+	int i = 0;
+	
+	char codigo_usuario[100];
+	convert_int_to_string(login.codigo_usuario, codigo_usuario);
+	
+	len += strlen(codigo_usuario);
+	len += strlen(login.usuario);
+	len += strlen(login.senha);
+	len += strlen(login.codigo_perfil);
+	
+	return len;
 }
 
 #endif /* _USUARIO_H */

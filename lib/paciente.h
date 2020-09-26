@@ -10,6 +10,7 @@
 #include "pesquisa.h"
 #include "fileutil.h"
 #include "dieta.h"
+#include "usuario.h"
 
 #ifndef _STRUCTPACIENTE_H
 #define _STRUCTPACIENTE_H
@@ -42,11 +43,11 @@ char* retorna_descricao_paciente_input(){
 
 struct Paciente carrega_paciente_input(){
 	struct Paciente paciente;
-	
 	paciente.nome = retorna_nome_paciente_input();
 	paciente.descricao = retorna_descricao_paciente_input();
 	paciente.dietas = retorna_dietas_input();
 	
+	paciente.login = carrega_login_input();
 	return paciente;
 }
 
