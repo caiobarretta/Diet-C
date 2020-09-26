@@ -28,7 +28,7 @@ char* monta_csv_texto_login(struct Login login);
 int len_login(struct Login login);
 
 int autenticacao_usuario(char* codigo_perfil){
-	int usuario_senha_valida = 0, tentativas = 0;
+	int codigo_usuario = 0, tentativas = 0;
 	do{
 		char usuario[TAMANHO_MAXIMO_CARACTERES_USUARIO];
 		
@@ -51,10 +51,10 @@ int autenticacao_usuario(char* codigo_perfil){
 		login.senha = (char*)malloc(strlen(senha_aux)*sizeof(char));
 		strcpy(login.senha, senha_aux);
 		
-		usuario_senha_valida = valida_login(login);
-		login.codigo_usuario = usuario_senha_valida;
+		codigo_usuario = valida_login(login);
+		login.codigo_usuario = codigo_usuario;
 		
-		if(usuario_senha_valida > 0)
+		if(codigo_usuario > 0)
 			printf("\nUsuário autenticado com sucesso!\n");
 		else
 			printf("\nSenha ou Usuário inválidos!\n");
@@ -62,8 +62,8 @@ int autenticacao_usuario(char* codigo_perfil){
 		system("cls");
 		tentativas++;
 		
-	}while(usuario_senha_valida <= 0 && tentativas <3);
-	return usuario_senha_valida;
+	}while(codigo_usuario <= 0 && tentativas <3);
+	return codigo_usuario;
 }
 
 int valida_login(struct Login login){

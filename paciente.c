@@ -81,24 +81,28 @@ void imprime_bem_vindo_cadastro_paciente(){
 void cadastrar_novo_paciente(){
 	/* Função que carrega o maior código de um arquivo */
 	int max_codigo_paciente = retorna_last_id_file(CAMIMNHO_ARQUIVO_PACIENTE);
+	int max_codigo_login = retorna_last_id_file(CAMIMNHO_ARQUIVO_USUARIO);
+	
 	max_codigo_paciente++;
+	max_codigo_login++;
 	
 	char* texto;
-	struct Paciente paciente = carrega_paciente_input();
-	paciente.codigo_paciente = max_codigo_paciente;
-	texto = monta_csv_texto_paciente(paciente);
-	char* mensagem_erro = "Ocorreu um erro ao salvar dados da paciente.";
-	
-	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_PACIENTE, texto, mensagem_erro);
-	
-	int max_codigo_login = retorna_last_id_file(CAMIMNHO_ARQUIVO_USUARIO);
-	max_codigo_login++;
-	char* mensagem_erro_login = "Ocorreu um erro ao salvar dados do login do paciente.";
 	char* texto_login;
+	
+	struct Paciente paciente = carrega_paciente_input();
+	
+	paciente.codigo_paciente = max_codigo_paciente;
 	paciente.login.codigo_usuario = max_codigo_login;
+	
+	texto = monta_csv_texto_paciente(paciente);
 	texto_login = monta_csv_texto_login(paciente.login);
 	
+	char* mensagem_erro = "Ocorreu um erro ao salvar dados da paciente.";
+	char* mensagem_erro_login = "Ocorreu um erro ao salvar dados do login do paciente.";
+	
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_USUARIO, texto_login, mensagem_erro_login);
+	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_PACIENTE, texto, mensagem_erro);
+	
 }
 
 void imprime_pacientes_cadastradas(){

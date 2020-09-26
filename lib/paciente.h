@@ -53,7 +53,7 @@ struct Paciente carrega_paciente_input(){
 
 char* monta_csv_texto_paciente(struct Paciente paciente){
 	int i = 0;
-	int const quantidade_de_virgulas = 4;
+	int const quantidade_de_virgulas = 5;
 	
 	char* CADEIA_CARACTER_SEPARACAO = (char*)malloc(sizeof(char));
 	memset(CADEIA_CARACTER_SEPARACAO, 0, sizeof(char));
@@ -72,6 +72,10 @@ char* monta_csv_texto_paciente(struct Paciente paciente){
 	memset(codigo_paciente, 0, TAMANHO_MAXIMO_CARACTERES_CODIGO);
 	convert_int_to_string(paciente.codigo_paciente, codigo_paciente);
 	
+	char codigo_usuario[TAMANHO_MAXIMO_CARACTERES_CODIGO];
+	memset(codigo_usuario, 0, TAMANHO_MAXIMO_CARACTERES_CODIGO);
+	convert_int_to_string(paciente.login.codigo_usuario, codigo_usuario);
+	
 	strcat(texto, codigo_paciente);
 	strcat(texto, CADEIA_CARACTER_SEPARACAO);
 	
@@ -82,7 +86,9 @@ char* monta_csv_texto_paciente(struct Paciente paciente){
 	strcat(texto, CADEIA_CARACTER_SEPARACAO);
 	
 	strcat(texto, paciente.dietas);
+	strcat(texto, CADEIA_CARACTER_SEPARACAO);
 	
+	strcat(texto, codigo_usuario);
 	strcat(texto, CARACTER_FINAL_DE_LINHA);
 	
 	return texto;
@@ -95,7 +101,11 @@ int len_paciente(struct Paciente paciente){
 	char codigo_paciente[100];
 	convert_int_to_string(paciente.codigo_paciente, codigo_paciente);
 	
+	char codigo_usuario[100];
+	convert_int_to_string(paciente.login.codigo_usuario, codigo_usuario);
+	
 	len += strlen(codigo_paciente);
+	len += strlen(codigo_usuario);
 	len += strlen(paciente.nome);
 	len += strlen(paciente.descricao);
 	len += strlen(paciente.dietas);
@@ -115,7 +125,6 @@ void monta_pesquisa_paciente(char* mensagem_erro){
 	pesquisa  = retorna_pesquisa_padrao();	
 	
 	executa_pesquisa_arquivo(pesquisa, CAMIMNHO_ARQUIVO_PACIENTE, mensagem_input_pesquisa, QTD_ITENS_PESQUISA_PADRAO, cabecalho_tabela, mensagem_erro);
-	
 }
 
 #endif /* _STRUCTPACIENTE_H */

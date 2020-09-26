@@ -6,10 +6,6 @@
 
 void imprime_bem_vindo();
 
-void perfil_nutricionista();
-
-void perfil_paciente();
-
 int main(){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo();
