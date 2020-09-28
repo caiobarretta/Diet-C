@@ -91,6 +91,8 @@ char* monta_csv_texto_paciente(struct Paciente paciente){
 	strcat(texto, codigo_usuario);
 	strcat(texto, CARACTER_FINAL_DE_LINHA);
 	
+	free(CADEIA_CARACTER_SEPARACAO);
+	
 	return texto;
 }
 
@@ -125,6 +127,7 @@ void monta_pesquisa_paciente(char* mensagem_erro){
 	pesquisa  = retorna_pesquisa_padrao();	
 	
 	executa_pesquisa_arquivo(pesquisa, CAMIMNHO_ARQUIVO_PACIENTE, mensagem_input_pesquisa, QTD_ITENS_PESQUISA_PADRAO, cabecalho_tabela, mensagem_erro);
+	free(pesquisa);
 }
 
 #endif /* _STRUCTPACIENTE_H */

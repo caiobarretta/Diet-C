@@ -9,9 +9,13 @@
 #define _STRUTIL_H
 
 char* split_char_position(const char* frase, const char separador, const int position);
+
 void replace_char(char* text_dest, const char* text_source, const char old_char, const char new_char);
+
 void remove_char(char* text_dest, const char* text_source, const char old_char);
+
 char* str_normalize_escape_char(const char* text_source);
+
 char* convert_int_to_string(int value, char* str);
 
 char* split_char_position(const char* frase, const char separador, const int posicao){
@@ -111,4 +115,5 @@ int convert_string_to_int(char* str){
 	int value = atoi(str_to_int);
 	return value;
 }
+
 #endif /* _STRUTIL_H */

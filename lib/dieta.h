@@ -49,6 +49,7 @@ struct Dieta carrega_dieta_input(){
 	
 	dieta.nome = retorna_nome_dieta_input();
 	dieta.descricao = retorna_descricao_dieta_input();
+	//printf("struct Dieta carrega_dieta_input()1\n");
 	dieta.porcoes = retorna_porcoes_input();
 	
 	return dieta;
@@ -88,6 +89,7 @@ char* monta_csv_texto_dieta(struct Dieta dieta){
 	
 	strcat(texto, CARACTER_FINAL_DE_LINHA);
 	
+	free(CADEIA_CARACTER_SEPARACAO);
 	return texto;
 }
 
@@ -118,7 +120,7 @@ void monta_pesquisa_dieta(char* mensagem_erro){
 	pesquisa  = retorna_pesquisa_padrao();	
 	
 	executa_pesquisa_arquivo(pesquisa, CAMIMNHO_ARQUIVO_DIETA, mensagem_input_pesquisa, QTD_ITENS_PESQUISA_PADRAO, cabecalho_tabela, mensagem_erro);
-	
+	free(pesquisa);	
 }
 
 char* retorna_dietas_input(){
@@ -131,11 +133,39 @@ char* retorna_dietas_input(){
 	memset(selecao, 0, sizeof(struct Selecao)*qtd_dieta);
 	
 	selecao = carrega_selecao_de_arquivo(CAMIMNHO_ARQUIVO_DIETA, qtd_dieta);
-	return monta_menu_selecao(vetor_opcoes, qtd_dieta, selecao, selecao_obrigatoria);	
+	char* itens_selecionados = monta_menu_selecao(vetor_opcoes, qtd_dieta, selecao, selecao_obrigatoria);
+	free(selecao);
+	return itens_selecionados;
 }
 
 int retorna_qtd_dieta(){
 	return retorna_quantidade_registro_arquivo(CAMIMNHO_ARQUIVO_DIETA);
+}
+
+void retorna_sugestao_dieta_paciente(int codigo_usuario){
+	
+	printf("Dieta(s) Recomendadas:\n\n");
+	char codigo_usuario_str[TAMANHO_MAXIMO_CARACTERES_CODIGO];
+	memset(codigo_usuario_str, 0, TAMANHO_MAXIMO_CARACTERES_CODIGO);
+	convert_int_to_string(codigo_usuario, codigo_usuario_str);
+	
+	char* dietas = retorna_valor_campo_file(CAMIMNHO_ARQUIVO_PACIENTE, codigo_usuario_str, 4, 3);
+	int i = 0, quantidade_dietas = 0;
+	
+	for(i=0; i<strlen(dietas); i++){
+		if(dietas[i] == CARACTER_SEPARADOR_SELECAO)
+			quantidade_dietas++;
+	}
+	
+	for(i=0; i<quantidade_dietas; i++){
+		char* dieta = split_char_position(dietas, CARACTER_SEPARADOR_SELECAO, i);
+		char* codigo_dieta = split_char_position(dieta, CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO, 0);
+		char* dieta_nome = split_char_position(dieta, CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO, 1);
+		printf("Dieta:%s\n", dieta_nome);
+		char* porcoes = retorna_valor_campo_file(CAMIMNHO_ARQUIVO_DIETA, codigo_dieta, 0, 3);
+		printf("Porções:%s\n", porcoes);
+	}
+	printf("\n\n");
 }
 
 #endif /* _STRUCTDIETA_H */

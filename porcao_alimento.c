@@ -22,6 +22,10 @@ void imprime_porcao_de_alimentos_cadastradas();
 
 void pesquisar_porcao_de_alimento();
 
+//int main(){
+//	main_cadastro_porcao_alimento(CODIGO_PERFIL_NUTRICIONISTA);
+//}
+
 void main_cadastro_porcao_alimento(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_cadastro_porcao_alimento();
@@ -90,6 +94,7 @@ void cadastrar_nova_porcao_de_alimento(){
 	char* mensagem_erro = "Ocorreu um erro ao salvar dados da porção de alimentos.";
 	
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, texto, mensagem_erro);
+	free(texto);
 }
 
 void imprime_porcao_de_alimentos_cadastradas(){

@@ -223,8 +223,10 @@ struct Selecao* carrega_selecao_de_arquivo(const char* FILE_NAME, int const QTD_
 	// Abre um arquivo TEXTO para LEITURA
 	arq = fopen(FILE_NAME, "rt");
 	if (arq == NULL){  // Se houve erro na abertura
-	 return 0;
+		printf("Houve erro na abertura do arquivo: %s\n", FILE_NAME);
+		return 0;
 	}
+	printf("Carregando as seleções do arquivo: %s\n", FILE_NAME);
 	while (!feof(arq)){
 	  // Lê uma linha (inclusive com o '\n')
 	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até TAMANHO_MAXIMO_CARACTERES_LINHA caracteres ou até o '\n'
@@ -240,18 +242,43 @@ struct Selecao* carrega_selecao_de_arquivo(const char* FILE_NAME, int const QTD_
 		strcat(nome_com_separador, CADEIA_CARACTER_SEPARADOR_INTERNO_MULTI_SELECAO);
 		strcat(nome_com_separador, sub_string_nome);
 		strcat(nome_com_separador, CADEIA_CARACTER_SEPARADOR_SELECAO);
-			
 		int codigo = atoi(sub_string_codigo);
 		selecao[count_lines].codigo_selecao = codigo;
 		selecao[count_lines].conteudo_exibicao_selecao = nome_com_separador;
 		selecao[count_lines].conteudo_selecao = nome_com_separador;
 		count_lines++;
-		
 	  }
 	}
 	fclose(arq);
-	
 	return selecao;
 }
 
+char* retorna_valor_campo_file(const char* FILE_NAME, char* COLUMN_SEARCH_VALUE, int const COLUMN_SEARCH_INDEX, int const COLUMN_RETURN_INDEX){
+	FILE *arq = NULL;
+	char row[TAMANHO_MAXIMO_CARACTERES_LINHA] = {0}, *result = {0};
+	char* campo_conteudo = NULL;
+	
+	// Abre um arquivo TEXTO para LEITURA
+	arq = fopen(FILE_NAME, "rt");
+	if (arq == NULL){  // Se houve erro na abertura
+	 return 0;
+	}
+	while (!feof(arq)){
+	  // Lê uma linha (inclusive com o '\n')
+	  result = fgets(row, TAMANHO_MAXIMO_CARACTERES_LINHA, arq);  // o 'fgets' lê até TAMANHO_MAXIMO_CARACTERES_LINHA caracteres ou até o '\n'
+	  if (result){  // Se foi possível ler
+		char* sub_string = split_char_position(row, CARACTER_SEPARACAO, COLUMN_SEARCH_INDEX);
+		char* sub_string_value = split_char_position(row, CARACTER_SEPARACAO, COLUMN_RETURN_INDEX);
+		
+		if(strcmp(sub_string, COLUMN_SEARCH_VALUE)==0){
+			campo_conteudo = (char*)malloc(strlen(sub_string_value)*sizeof(char));
+			strcpy(campo_conteudo, sub_string_value);
+			break;
+		}
+		free(sub_string);
+	  }
+	}
+	fclose(arq);
+	return campo_conteudo;
+}
 #endif /* _FILEUTIL_H */

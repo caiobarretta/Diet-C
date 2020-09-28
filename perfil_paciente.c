@@ -15,6 +15,7 @@ void main_perfil_paciente(){
 	int codigo_usuario = autenticacao_usuario(CODIGO_PERFIL_PACIENTE);
 	if(codigo_usuario >= 1){
 		imprime_bem_vindo_perfil_paciente();
+		carrega_sugestao_dieta_paciente(codigo_usuario);
 		int opcao = -1;
 		do{
 			printf("Entre com 1 para opção Porção de alimento.\n");

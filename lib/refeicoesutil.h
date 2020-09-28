@@ -20,7 +20,9 @@ char* carrega_refeicoes_input(){
 	
 	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_REFEICOES);
 	selecao = carrega_selecao_refeicoes();
-	return monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_obrigatoria);
+	char* itens_selecionados = monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_obrigatoria);
+	free(selecao);
+	return itens_selecionados;
 }
 
 struct Selecao* carrega_selecao_refeicoes(){

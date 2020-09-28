@@ -22,6 +22,12 @@ void imprime_dietas_cadastradas();
 
 void pesquisar_dieta();
 
+void carrega_sugestao_dieta_paciente(int codigo_usuario);
+
+//int main(){
+//	main_cadastro_dieta(CODIGO_PERFIL_NUTRICIONISTA);
+//}
+
 void main_cadastro_dieta(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_cadastro_dieta();
@@ -90,6 +96,7 @@ void cadastrar_nova_dieta(){
 	char* mensagem_erro = "Ocorreu um erro ao salvar dados da dietas.";
 	
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_DIETA, texto, mensagem_erro);
+	free(texto);
 }
 
 void imprime_dietas_cadastradas(){
@@ -103,4 +110,7 @@ void pesquisar_dieta(){
 	monta_pesquisa_dieta(mensagem_erro);
 }
 
+void carrega_sugestao_dieta_paciente(int codigo_usuario){
+	retorna_sugestao_dieta_paciente(codigo_usuario);
+}
 #endif /* _DIETA_C */

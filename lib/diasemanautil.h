@@ -20,7 +20,10 @@ char* carrega_dias_da_semana_input(){
 	
 	struct Selecao* selecao = (struct Selecao*)malloc(sizeof(struct Selecao)*QTD_DIAS_DA_SEMANA);
 	selecao = carrega_selecao_dias_da_semana();
-	return monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_opcional);
+	char* itens_selecionados = monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_opcional);
+	free(selecao);
+	return itens_selecionados;
+	//return monta_menu_selecao(vetor_opcoes, QTD_DIAS_DA_SEMANA, selecao, selecao_opcional);
 }
 
 struct Selecao* carrega_selecao_dias_da_semana(){

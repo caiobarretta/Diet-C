@@ -123,12 +123,11 @@ void monta_pesquisa_porcao_de_alimento(char* mensagem_erro){
 	pesquisa  = retorna_pesquisa_padrao();	
 	
 	executa_pesquisa_arquivo(pesquisa, CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, mensagem_input_pesquisa, QTD_ITENS_PESQUISA_PADRAO, cabecalho_tabela, mensagem_erro);
-	
+	free(pesquisa);
 }
 
 char* retorna_porcoes_input(){
 	int qtd_porcao_alimento = retorna_qtd_porcao_alimento();
-	
 	int vetor_opcoes[qtd_porcao_alimento];
 	memset(vetor_opcoes, 0, sizeof(int)*qtd_porcao_alimento);
 	
@@ -136,7 +135,9 @@ char* retorna_porcoes_input(){
 	memset(selecao, 0, sizeof(struct Selecao)*qtd_porcao_alimento);
 	
 	selecao = carrega_selecao_de_arquivo(CAMIMNHO_ARQUIVO_PORCAO_ALIMENTO, qtd_porcao_alimento);
-	return monta_menu_selecao(vetor_opcoes, qtd_porcao_alimento, selecao, selecao_obrigatoria);	
+	char* itens_selecionados = monta_menu_selecao(vetor_opcoes, qtd_porcao_alimento, selecao, selecao_obrigatoria);
+	free(selecao);
+	return itens_selecionados;
 }
 
 int retorna_qtd_porcao_alimento(){

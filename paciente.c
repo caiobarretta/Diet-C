@@ -22,6 +22,10 @@ void imprime_pacientes_cadastradas();
 
 void pesquisar_paciente();
 
+//int main(){
+//	main_cadastro_paciente(CODIGO_PERFIL_NUTRICIONISTA);
+//}
+
 void main_cadastro_paciente(char* codigo_perfil){
 	setlocale(LC_ALL, "Portuguese");
 	imprime_bem_vindo_cadastro_paciente();
@@ -103,6 +107,8 @@ void cadastrar_novo_paciente(){
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_USUARIO, texto_login, mensagem_erro_login);
 	salvar_conteudo_em_arquivo(CAMIMNHO_ARQUIVO_PACIENTE, texto, mensagem_erro);
 	
+	free(texto);
+	free(texto_login);
 }
 
 void imprime_pacientes_cadastradas(){
