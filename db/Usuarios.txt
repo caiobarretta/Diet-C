@@ -1,4 +1,2 @@
-1,Caio,1234,N
-2,Teste,Teste,P
-3,dcasdc adca ,casdcasd adcad ,P
-4,Teste,Teste1234,P
+1,nutri,nutri,N
+2,antonio,antonio,P

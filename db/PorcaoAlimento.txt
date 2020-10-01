@@ -1,23 +1,20 @@
-1,Arroz 100g,Arroz 100g,dom|seg|ter|qua|qui|sex|sab|,Brunch|Jantar|
-2,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-3,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-4,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-5,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-6,012345678912345678901234567890,012dckhadcb adbc hasdb ,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-7,lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj,bhbjkjkb cjasdbnascbnc cajkascbnc cjh dcjka ascjkasc cjc asbascnasc asch,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-8,lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn,kjadcbadsuuiadjkbsdbnhk jkdsnsd msdbjk,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-9,tscqsdcs adsasdc csasd,cadcdc dcadacd adcasd,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-10,sggsfv gb dfvsdfb fghb sgb gf bsf,s fgsb sgfb sb sgs bsb trbhrn ,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-11,dacsd adc adc dca dcasd ,cad adc  g fv v v v v  ,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-12,dfvcse g g er v fv fvvgb gb g  v,wfvfv    vd f s gbgr n gb fv vc,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-13,Tescad dacas asdascsa,casdcasd dasc ,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-14,adcadca,casdcad,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-15,casccdcadcad adcad adcacdfž,cadscadc adcad,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-16,Teste,Teste,dom|seg|,Cafe da manha|Brunch|
-17,Teste,Teste,dom|seg|,Cafe da manha|Brunch|
-18,Teste,Teste,dom|seg|ter|,Cafe da manha|
-19,Teste,Teste,dom|,Cafe da manha|
-20,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-21,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-22,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
-23,Teste,Teste,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+1,Arroz,62g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+2,Leite Desnatado,150ml,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+3,Pao Frances,50g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+4,Queijo Fresco sem Sal,30g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+5,Mamao,115g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+6,Pera,79g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+7,Salada de Tomate,45g,dom|seg|ter|qua|qui|sex|sab|,Almoco|
+8,Feijão,50g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+9,Rocambole de carne moida,60g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+10,Cenoura,8g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+11,Pimentao vermelho cozido,12g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+12,Batata assada,40g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+13,Laranjada,150ml,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Almoco|Lanche|Jantar|Sobremesa|Ceia|
+14,Iogurte diet com polpa de frutas,150ml,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Lanche|Sobremesa|Ceia|
+15,Bolacha integral,24g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Lanche|Sobremesa|Ceia|
+16,Salada de Alface,22g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+17,File de frango grelhado,75g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+18,Abobora refogada,66g,dom|seg|ter|qua|qui|sex|sab|,Almoco|Jantar|
+19,Abacaxi,130g,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Lanche|Sobremesa|Ceia|
+20,Leite com mamao,150ml,dom|seg|ter|qua|qui|sex|sab|,Cafe da manha|Brunch|Lanche|Sobremesa|Ceia|

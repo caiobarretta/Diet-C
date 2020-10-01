@@ -1,8 +1,1 @@
-1,eaadsc adscsa ad aads ad ac,adcad a ad c fbv wg cvsas acx ,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|
-2,Tesf vdf cvdv s vcfv vfd ,c vas v fv cdvcvdc fvc dfc fvbcv,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|
-3,efwdv sdda xxsdv dvvsvadasvdx sda x,dvfdvs xdv v fv fgb wg  w wffwv s ,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|7-lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj|8-lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn|
-4,dasd ac ac  afc sc df c dfcv sdf cvvxc dv ,sdf cxsdff cafvc avc fvv cfav ,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|7-lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj|8-lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn|
-5,dv xvfv c csvscv fvfv fvv ,df cv fc fv cfv cc v cc ,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|7-lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj|8-lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn|
-6,efqev df vdfvfd asdfva ,fvsdfvb sc ,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|7-lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj|8-lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn|9-tscqsdcs adsasdc csasd|10-sggsfv gb dfvsdfb fghb sgb gf bsf|11-dacsd adc adc dca dcasd |12-dfvcse g g er v fv fvvgb gb g  v|13-Tescad dacas asdascsa|
-7,Teste,Teste,1-Arroz 100g|2-Teste|3-Teste|4-Teste|5-Teste|6-012345678912345678901234567890|7-lhbajdcnvanbdcvnbavdcnb jhvadvbavbsabn dcjhscavbj|8-lhkdbvcjavbdlbhad adhbvhadkjba cabhdjcbjadbn cajkdbclbadn|
-8,Teste,Teste,1-Arroz 100g|2-Teste|3-Teste|4-Teste|
+1,low carb ,Intuito de reducao de carboidrato,7-Salada de Tomate|10-Cenoura|16-Salada de Alface|17-File de frango grelhado|19-Abacaxi|
